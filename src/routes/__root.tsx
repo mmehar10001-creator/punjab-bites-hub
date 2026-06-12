@@ -85,7 +85,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:description", content: "Pulao · Kabab · Roast · Deg. Home delivery, dine-in and catering in Rawalpindi." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Punjab Foods · Rawalpindi" },
+      { name: "twitter:description", content: "Pulao, Kabab, Roast and Deg catering with home delivery in Rawalpindi." },
     ],
     links: [
       {
