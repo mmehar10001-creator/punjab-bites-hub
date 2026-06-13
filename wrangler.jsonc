@@ -1,0 +1,19 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "punjabfood-grabber",
+  "main": ".output/server/index.mjs",
+  "compatibility_date": "2025-06-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": ".output/public",
+    "binding": "ASSETS"
+  },
+  "observability": {
+    "enabled": true
+  },
+  "alias": {
+    // TanStack Start emits a virtual module for injected head scripts that
+    // Cloudflare's bundler cannot resolve. Point it at an empty default export.
+    "tanstack-start-injected-head-scripts:v": "./wrangler-empty.mjs"
+  }
+}
