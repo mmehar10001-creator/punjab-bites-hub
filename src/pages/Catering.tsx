@@ -1,18 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { Helmet } from "react-helmet-async";
 import deg from "@/assets/pf/deg.jpg";
-
-export const Route = createFileRoute("/catering")({
-  head: () => ({
-    meta: [
-      { title: "Catering / Deg · Punjab Foods" },
-      { name: "description", content: "Deg catering for weddings, events and functions in Rawalpindi — Pulao, Biryani, Qorma and Zarda." },
-      { property: "og:title", content: "Catering Deg Service · Punjab Foods" },
-      { property: "og:description", content: "Sada, Channa, Chicken, Mutton and Beef degs. Bookings on call." },
-      { property: "og:image", content: deg },
-    ],
-  }),
-  component: CateringPage,
-});
 
 const rows: { name: string; urdu: string; qty: string; price: string }[] = [
   { name: "Sada Pulao", urdu: "سادہ پلاؤ", qty: "10 kg chawal", price: "Rs. 10,000" },
@@ -31,9 +18,16 @@ const rows: { name: string; urdu: string; qty: string; price: string }[] = [
 
 const phones = ["051-5706222", "0343-7117361", "0302-5527361"];
 
-function CateringPage() {
+export default function Catering() {
   return (
     <>
+      <Helmet>
+        <title>Catering / Deg · Punjab Foods</title>
+        <meta name="description" content="Deg catering for weddings, events and functions in Rawalpindi — Pulao, Biryani, Qorma and Zarda." />
+        <meta property="og:title" content="Catering Deg Service · Punjab Foods" />
+        <meta property="og:description" content="Sada, Channa, Chicken, Mutton and Beef degs. Bookings on call." />
+        <meta property="og:image" content={deg} />
+      </Helmet>
       <section className="relative pt-40 pb-24 px-6 overflow-hidden">
         <img src={deg} alt="" className="absolute inset-0 h-full w-full object-cover opacity-20" />
         <div className="absolute inset-0 bg-background/60" />

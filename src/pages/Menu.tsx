@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { Helmet } from "react-helmet-async";
 import pulaoSpecialNokabab from "@/assets/pf/pulao-special-nokabab.jpg";
 import pulaoSingleChoice from "@/assets/pf/pulao-single-choice.jpg";
 import pulaoSpecialChoice from "@/assets/pf/pulao-special-choice.jpg";
@@ -14,18 +14,6 @@ import chickenPiece from "@/assets/pf/chicken-piece.jpg";
 import shamiKabab from "@/assets/pf/shami-kabab.jpg";
 import zarda from "@/assets/pf/zarda.jpg";
 import softDrink from "@/assets/pf/soft-drink.jpg";
-
-export const Route = createFileRoute("/menu")({
-  head: () => ({
-    meta: [
-      { title: "Menu · Punjab Foods" },
-      { name: "description", content: "Full à la carte menu — Chicken Pulao, Roast, Shami Kabab, Zarda and more. Prices in PKR." },
-      { property: "og:title", content: "Menu · Punjab Foods" },
-      { property: "og:description", content: "Chicken Pulao, Roast, Kabab, Sides and Sweets. Fresh daily." },
-    ],
-  }),
-  component: MenuPage,
-});
 
 type Item = { img: string; name: string; urdu: string; sub?: string; price: string };
 type Section = { title: string; urdu: string; items: Item[] };
@@ -75,9 +63,15 @@ const sections: Section[] = [
   },
 ];
 
-function MenuPage() {
+export default function Menu() {
   return (
     <>
+      <Helmet>
+        <title>Menu · Punjab Foods</title>
+        <meta name="description" content="Full à la carte menu — Chicken Pulao, Roast, Shami Kabab, Zarda and more. Prices in PKR." />
+        <meta property="og:title" content="Menu · Punjab Foods" />
+        <meta property="og:description" content="Chicken Pulao, Roast, Kabab, Sides and Sweets. Fresh daily." />
+      </Helmet>
       <section className="pt-40 pb-16 px-6 text-center">
         <p className="text-xs tracking-[0.4em] uppercase text-primary mb-4">À la Carte</p>
         <h1 className="font-serif text-5xl md:text-7xl">Our Menu</h1>

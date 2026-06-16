@@ -1,22 +1,16 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { Helmet } from "react-helmet-async";
 import kabab from "@/assets/pf/kabab.jpg";
 
-export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About · Punjab Foods" },
-      { name: "description", content: "A family-run kitchen in Rawalpindi cooking traditional Punjabi recipes — pulao, kabab, roast and deg." },
-      { property: "og:title", content: "About Punjab Foods" },
-      { property: "og:description", content: "Tradition on a plate — Punjab Foods, Rawalpindi." },
-      { property: "og:image", content: kabab },
-    ],
-  }),
-  component: AboutPage,
-});
-
-function AboutPage() {
+export default function About() {
   return (
     <section className="pt-40 pb-24 px-6">
+      <Helmet>
+        <title>About · Punjab Foods</title>
+        <meta name="description" content="A family-run kitchen in Rawalpindi cooking traditional Punjabi recipes — pulao, kabab, roast and deg." />
+        <meta property="og:title" content="About Punjab Foods" />
+        <meta property="og:description" content="Tradition on a plate — Punjab Foods, Rawalpindi." />
+        <meta property="og:image" content={kabab} />
+      </Helmet>
       <div className="mx-auto max-w-6xl grid md:grid-cols-2 gap-16 items-center">
         <div>
           <p className="text-xs tracking-[0.4em] uppercase text-primary mb-4">About Us</p>

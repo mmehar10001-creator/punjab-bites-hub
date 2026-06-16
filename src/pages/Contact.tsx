@@ -1,23 +1,17 @@
-import { createFileRoute } from "@tanstack/react-router";
-
-export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact · Punjab Foods" },
-      { name: "description", content: "Phone, WhatsApp and address for Punjab Foods, Sirsyed Chowk, Tipu Road, Rawalpindi." },
-      { property: "og:title", content: "Contact · Punjab Foods" },
-      { property: "og:description", content: "Home delivery, dine-in & catering orders welcome." },
-    ],
-  }),
-  component: ContactPage,
-});
+import { Helmet } from "react-helmet-async";
 
 const phones = ["051-5706222", "0343-7117361", "0302-5527361"];
 const MAP_SRC = "https://www.google.com/maps?q=Sirsyed+Chowk+Tipu+Road+Rawalpindi&output=embed";
 
-function ContactPage() {
+export default function Contact() {
   return (
     <section className="pt-40 pb-24 px-6">
+      <Helmet>
+        <title>Contact · Punjab Foods</title>
+        <meta name="description" content="Phone, WhatsApp and address for Punjab Foods, Sirsyed Chowk, Tipu Road, Rawalpindi." />
+        <meta property="og:title" content="Contact · Punjab Foods" />
+        <meta property="og:description" content="Home delivery, dine-in & catering orders welcome." />
+      </Helmet>
       <div className="mx-auto max-w-4xl text-center">
         <p className="text-xs tracking-[0.4em] uppercase text-primary mb-4">Get in Touch</p>
         <h1 className="font-serif text-5xl md:text-7xl mb-6">Contact Us</h1>

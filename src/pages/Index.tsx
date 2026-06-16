@@ -1,23 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import heroPulao from "@/assets/pf/hero-pulao.jpg";
 import pulaoSpecial from "@/assets/pf/pulao-special-nokabab.jpg";
 import roastHalf from "@/assets/pf/roast-half.jpg";
 import shamiKabab from "@/assets/pf/shami-kabab.jpg";
 import zarda from "@/assets/pf/zarda.jpg";
-
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Punjab Foods · Pulao, Kabab, Roast & Deg in Rawalpindi" },
-      { name: "description", content: "Traditional Pulao, Kabab, Roast and Deg catering from Punjab Foods, Rawalpindi. Home delivery and bookings on call." },
-      { property: "og:title", content: "Punjab Foods · Rawalpindi" },
-      { property: "og:description", content: "Pulao · Kabab · Roast · Deg. Order in or book catering." },
-      { property: "og:image", content: heroPulao },
-    ],
-  }),
-  component: Index,
-});
 
 const signatures = [
   { img: pulaoSpecial, name: "Chicken Pulao", price: "from Rs. 430" },
@@ -35,9 +22,16 @@ const pulaoMenu = [
   { sub: "Special", price: "Rs. 650" },
 ];
 
-function Index() {
+export default function Index() {
   return (
     <>
+      <Helmet>
+        <title>Punjab Foods · Pulao, Kabab, Roast & Deg in Rawalpindi</title>
+        <meta name="description" content="Traditional Pulao, Kabab, Roast and Deg catering from Punjab Foods, Rawalpindi. Home delivery and bookings on call." />
+        <meta property="og:title" content="Punjab Foods · Rawalpindi" />
+        <meta property="og:description" content="Pulao · Kabab · Roast · Deg. Order in or book catering." />
+        <meta property="og:image" content={heroPulao} />
+      </Helmet>
       <section className="relative h-screen min-h-[640px] w-full overflow-hidden">
         <img src={heroPulao} alt="Chicken Pulao" className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
