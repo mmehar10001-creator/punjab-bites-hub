@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 
 const links = [
@@ -23,14 +23,18 @@ export function SiteHeader() {
         </Link>
         <nav className="hidden md:flex items-center gap-10">
           {links.map((l) => (
-            <Link
+            <NavLink
               key={l.to}
               to={l.to}
-              className="text-xs tracking-[0.25em] uppercase text-foreground/80 hover:text-primary transition-colors"
-              activeProps={{ className: "text-primary" }}
+              end={l.to === "/"}
+              className={({ isActive }) =>
+                `text-xs tracking-[0.25em] uppercase transition-colors ${
+                  isActive ? "text-primary" : "text-foreground/80 hover:text-primary"
+                }`
+              }
             >
               {l.label}
-            </Link>
+            </NavLink>
           ))}
         </nav>
         <div className="flex items-center gap-3">
